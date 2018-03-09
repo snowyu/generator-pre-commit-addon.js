@@ -11,5 +11,5 @@ module.exports = [
     message: 'What\'s the message of the commit?',
     default: 'init',
     when: props => props['commit-all']
-  },
+  }
 ];

@@ -23,11 +23,10 @@ class PreCommitAddonGenerator extends Generator {
     this.spawnCommandSync('git', ['init', '--quiet']);
 
     this._addCommit = function (message) {
-      var commitMessage = isString(message) ? message : 'init';
+      const commitMessage = isString(message) ? message : 'init';
       this.spawnCommandSync('git', ['add', '--all']);
       this.spawnCommandSync('git', ['commit', '-m', commitMessage, '--quiet']);
-    }
-
+    };
   }
 
   beforeWriting() {
@@ -36,13 +35,12 @@ class PreCommitAddonGenerator extends Generator {
     Object.assign(this.props, this.sharedProps);
   }
 
-  //writing end.
+  // Occur on writing end.
   conflicts() {
     if (this.props['commit-all']) {
       this._addCommit(this.props['commit-msg']);
     }
   }
-
 }
 
 module.exports = Generator.make({
