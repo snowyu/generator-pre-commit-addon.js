@@ -21,7 +21,8 @@
   "license": "MIT",
   "dependencies": {
     "@ngx-rocket/core": "^3.2.1",
-    "chalk": "^2.3.0"
+    "chalk": "^2.3.0",
+    "deepmerge": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "^4.11.0",

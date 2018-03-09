@@ -2,8 +2,10 @@
 
 const Generator = require('@ngx-rocket/core');
 const chalk = require('chalk');
+const deepMerge = require('deepmerge');
 const pkg = require('../../package.json');
 const prompts = require('./prompts');
+const extPackage = require('./merged/package.json');
 
 function isString(value) {
   return typeof value === 'string';
@@ -20,7 +22,6 @@ class PreCommitAddonGenerator extends Generator {
     // Setting version allows Yeoman to notify the user of updates
     this.version = pkg.version;
     this.log(`Using ${chalk.cyan('pre-commit-addon')} ${chalk.green(this.version)}`);
-    this.spawnCommandSync('git', ['init', '--quiet']);
 
     this._addCommit = function (message) {
       const commitMessage = isString(message) ? message : 'init';
@@ -35,8 +36,21 @@ class PreCommitAddonGenerator extends Generator {
     Object.assign(this.props, this.sharedProps);
   }
 
+  writing() {
+    this.pkg = this.fs.readJSON(
+      this.destinationPath('package.json'),
+      {}
+    );
+    this.pkg = deepMerge(this.pkg, extPackage);
+    this.fs.writeJSON(
+      this.destinationPath('package.json'),
+      this.pkg
+    );
+  }
+
   // Occur on writing end.
   conflicts() {
+    this.spawnCommandSync('git', ['init', '--quiet']);
     if (this.props['commit-all']) {
       this._addCommit(this.props['commit-msg']);
     }
