@@ -1,0 +1,15 @@
+{
+  "generator-ngx-rocket": {
+    "version": "4.0.0",
+    "props": {
+      "appName": "pre commit addon",
+      "description": "Automatically installs a git pre-commit script in your git repository which runs your `npm test:ci` on pre-commit",
+      "author": "Riceball LEE",
+      "advanced": true,
+      "projectName": "pre-commit-addon",
+      "packageManager": "npm",
+      "className": "PreCommitAddon",
+      "isAddon": true
+    }
+  }
+}
