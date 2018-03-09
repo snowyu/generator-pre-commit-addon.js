@@ -1,6 +1,6 @@
 {
   "name": "generator-pre-commit-addon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically installs a git pre-commit script in your git repository which runs your `npm test:ci` on pre-commit",
   "main": "./generators/app/index.js",
   "scripts": {
