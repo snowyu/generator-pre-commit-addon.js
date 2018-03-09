@@ -9,9 +9,15 @@
   },
   "keywords": [
     "yeoman-generator",
+    "git",
+    "pre-commit",
     "ngx-rocket-addon"
   ],
   "author": "Riceball LEE",
+  "homepage": "https://github.com/snowyu/generator-pre-commit-addon.js",
+  "bugs": {
+    "url": "https://github.com/ngx-rocket/generator-pre-commit-addon.js/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "@ngx-rocket/core": "^3.2.1",
