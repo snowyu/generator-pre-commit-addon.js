@@ -37,15 +37,15 @@ class PreCommitAddonGenerator extends Generator {
   }
 
   writing() {
-    let pkg = this.fs.readJSON(
-      this.destinationPath('package.json'),
-      {}
-    );
-    pkg = deepMerge(pkg, extPackage);
-    this.fs.writeJSON(
-      this.destinationPath('package.json'),
-      pkg
-    );
+    // let pkg = this.fs.readJSON(
+    //   this.destinationPath('package.json'),
+    //   {}
+    // );
+    // pkg = deepMerge(pkg, extPackage);
+    // this.fs.writeJSON(
+    //   this.destinationPath('package.json'),
+    //   pkg
+    // );
   }
 
   // Occur on writing end.
