@@ -37,6 +37,7 @@ class PreCommitAddonGenerator extends Generator {
   }
 
   writing() {
+    return super.writing();
     // let pkg = this.fs.readJSON(
     //   this.destinationPath('package.json'),
     //   {}
